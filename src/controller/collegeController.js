@@ -70,7 +70,7 @@ const createCollege = async function (req, res) {
     try {
         const data = req.body
         let { name, fullName, logoLink } = data
-        
+     
 
         console.log(name, fullName, logoLink);
 
@@ -86,8 +86,11 @@ const createCollege = async function (req, res) {
         if (isValidFullName(fullName) == false) return res.status(400).send({ status: false, msg: "Invalid FullName, available characters ( a-z A-Z ) with maximum 100 characters" })
 
         //---------------------
+        function isImage(url) {
+            return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+          }
 
-        if (!logoLink) { return res.status(400).send({ status: false, msg: "LogoLink is required" }) }
+        if (!isImage(logoLink)) { return res.status(400).send({ status: false, msg: "LogoLink is invalid" }) }
         if (!logoLink.trim()) {
             return res.status(400).send({ status: false, msg: "LogoLink is required" })
         }

@@ -1,5 +1,5 @@
-const collegeModel=require("../models/collegeModel")
-const internModel=require("../models/internModel")
+const collegeModel = require("../models/collegeModel")
+const internModel = require("../models/internModel")
 
 
 
@@ -16,12 +16,12 @@ const isValidMobile = (number) => {
 }
 
 //validate name for upper case abbrivated name
-const upar_case = function(fun){
-    return  fun.toUpperCase()
+const upar_case = function (fun) {
+    return fun.toUpperCase()
 }
 
-const lower_case = function(fun){
-    return  fun.toLowerCase()
+const lower_case = function (fun) {
+    return fun.toLowerCase()
 }
 
 
@@ -36,14 +36,9 @@ const createIntern = async (req, res) => {
             return res.status(400).send({ status: false, msg: "Post body data must be required!" })
         }
 
-        let {
-            name,
-            email,
-            mobile,
-            collegeName
-        } = data
+        let { name, email, mobile, collegeName } = data
 
-        
+
 
         // validate it's values
         if (!name || !name.trim()) {
@@ -79,7 +74,7 @@ const createIntern = async (req, res) => {
             isDeleted: false
         })
 
-        
+
         if (!inCollegeDb) {
             return res.status(400).send({ status: false, msg: "the college where you belong doesn't exist" })
         }
@@ -93,9 +88,9 @@ const createIntern = async (req, res) => {
 
 
         // check if phone number is exist in our collection OR not
-        let duplicateMobile = await internModel.findOne({mobile:mobile})
-        if(duplicateMobile){
-            return res.status(409).send({status: false, msg: "Mobile already exists"})
+        let duplicateMobile = await internModel.findOne({ mobile: mobile })
+        if (duplicateMobile) {
+            return res.status(409).send({ status: false, msg: "Mobile already exists" })
         }
 
 
@@ -109,7 +104,7 @@ const createIntern = async (req, res) => {
 
         // now - create a document in the collection
         const create = await internModel.create(insertData)
-        return res.status(201).send({ status: true, data: create})
+        return res.status(201).send({ status: true, data: create })
     }
 
 
@@ -118,7 +113,6 @@ const createIntern = async (req, res) => {
 
     }
 }
-
 
 
 module.exports.createIntern = createIntern

@@ -6,7 +6,8 @@ const collegeSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique:true,
-        trim: true
+        trim: true,
+        toLowerCase :true
     },
     fullName: {
         type: String,
@@ -25,8 +26,6 @@ const collegeSchema = new mongoose.Schema({
         default: false,
     
       },
-    },
-
- { timestamps: true });
+    },{ timestamps: true });
 
 module.exports = mongoose.model('College', collegeSchema)

@@ -8,6 +8,7 @@ const createCollege = async function (req, res) {
     try {
         const data = req.body
         let { name, fullName, logoLink } = data
+        
 
         if (Object.keys(data).length == 0) {
             return res.status(400).send({ status: false, msg: "Data is required to add a college" })

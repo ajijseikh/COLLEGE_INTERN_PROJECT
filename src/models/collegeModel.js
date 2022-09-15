@@ -1,13 +1,13 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose")
 
 const collegeSchema = new mongoose.Schema({
 
     name: {
         type: String,
         required: true,
-        unique:true,
+        unique: true,
         trim: true,
-        toLowerCase :true
+        toLowerCase: true
     },
     fullName: {
         type: String,
@@ -19,13 +19,13 @@ const collegeSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    
-    
+
+
     isDeleted: {
         type: Boolean,
         default: false,
-    
-      },
-    },{ timestamps: true });
+
+    },
+}, { timestamps: true });
 
 module.exports = mongoose.model('College', collegeSchema)

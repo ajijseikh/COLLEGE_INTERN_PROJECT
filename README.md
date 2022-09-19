@@ -1,6 +1,6 @@
 # COLLEGE_INTERN_PROJECT
 COLLEGE_INTERN_PROJECT_GROUP_57
-# Radon
+# Plutonium
 
 ## Open to Intern Project Requirement
 

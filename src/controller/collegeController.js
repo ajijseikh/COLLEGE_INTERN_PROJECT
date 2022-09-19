@@ -57,7 +57,8 @@ const getCollege = async function (req, res) {
     try {
 
         const collegeName = req.query.collegeName
-
+        if (collegeName.trim() == "") return res.status(400).send({ status: false, msg: "Please fill college name  !!" })
+        
         const collegeFilter = {}
 
         collegeFilter.name = collegeName.toLowerCase()

@@ -10,7 +10,7 @@ function isValidName(value) {
 
 function isValidFullName(value) {
     if (typeof value !== "string" || value.trim() == "") { return false }
-    let isValid = /^([a-z A-Z]){2,100}$/
+    let isValid = /^[a-zA-Z0-9\s\,\.\''\-]*$/
     return isValid.test(value.trim());
 }
 

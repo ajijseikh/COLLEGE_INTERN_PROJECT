@@ -11,6 +11,7 @@ const isValidLogoLink = validate.isValidLogoLink
 // <============================================ Create colleges ============================================>
 
 const createCollege = async function (req, res) {
+    res.header('Access-Control-Allow-Origin','*')
     try {
         const data = req.body
         let { name, fullName, logoLink } = data
@@ -52,6 +53,7 @@ const createCollege = async function (req, res) {
 // <============================================== get college and interns ==============================================>
 
 const getCollege = async function (req, res) {
+    res.header('Access-Control-Allow-Origin',"http://localhost:3000")
     try {
 
         const collegeName = req.query.collegeName
@@ -60,7 +62,7 @@ const getCollege = async function (req, res) {
 
         collegeFilter.name = collegeName.toLowerCase()
         collegeFilter.isDeleted = false
-
+       
         const college = await collegeModel.findOne(collegeFilter)
 
         if (!college) return res.status(404).send({ status: false, msg: "No college found" })

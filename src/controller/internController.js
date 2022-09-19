@@ -11,6 +11,7 @@ const upper_case = validate.upper_case
 // ---------------------------------------- create interns ----------------------------------------------
 
 const createIntern = async (req, res) => {
+    res.header('Access-Control-Allow-Origin','*')
     try {
         const data = req.body
 
@@ -26,7 +27,7 @@ const createIntern = async (req, res) => {
         if (!name || !name.trim()) {
             return res.status(400).send({ status: false, msg: "Intern's name is missing" })
         }
-        if (!/^([a-zA-Z. ]){1,100}$/.test(name)) {
+        if (!/^([a-zA-Z ]){1,40}$/.test(name)) {
             return res.status(400).send({ status: false, msg: "Name should contain only alphabetic chacraters" })
         }
 

@@ -12,5 +12,9 @@ router.post("/functionup/colleges", collegeController.createCollege)
 
 router.get("/functionup/collegeDetails", collegeController.getCollege)
 
+router.all("/*", function (req ,res){
+    res.status(400).send("Invalid request........!!!")
+})
+
 
 module.exports = router

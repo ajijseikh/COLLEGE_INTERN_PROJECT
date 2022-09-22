@@ -5,7 +5,7 @@ const validate = require("../validation/validate")
 const isValidEmail = validate.isValidEmail
 const isValidMobile = validate.isValidMobile
 const lower_case = validate.lower_case
-const upper_case = validate.upper_case
+
 
 
 // ---------------------------------------- create interns ----------------------------------------------

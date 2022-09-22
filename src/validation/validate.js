@@ -42,15 +42,10 @@ const isValidMobile = (number) => {
 }
 
 
-const upper_case = function (fun) {
-    return fun.toUpperCase()
-}
-
-
 const lower_case = function (fun) {
     return fun.toLowerCase()
 }
 
 
 
-module.exports = { isValidName, isValidFullName, isValidLogoLink, isValidEmail, isValidMobile, upper_case, lower_case }
+module.exports = { isValidName, isValidFullName, isValidLogoLink, isValidEmail, isValidMobile, lower_case }
